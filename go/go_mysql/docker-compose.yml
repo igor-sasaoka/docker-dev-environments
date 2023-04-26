@@ -4,11 +4,11 @@ services:
       context: ./
       dockerfile: DOCKERFILE
     container_name: go_app
-    ports: 
+    ports:
       - 80:80
     depends_on:
       - go_db
-  
+
   go_db:
     image: mysql
     container_name: go_db
@@ -18,7 +18,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: toor
-      MYSQL_DATABASE: go_db 
+      MYSQL_DATABASE: go_db
       MYSQL_USER: user
       MYSQL_PASSWORD: pass
     volumes:
@@ -29,6 +29,6 @@ services:
 volumes:
   go_db_data:
 
-networks:
-  net:
-    driver: bridge
+    networks:
+      net:
+        driver: bridge
